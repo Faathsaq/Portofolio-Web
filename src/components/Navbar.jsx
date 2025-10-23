@@ -75,18 +75,24 @@ const Navbar = () => {
                     : "bg-transparent"
             }`}
         >
-            <div className="mx-auto px-[5%] sm:px-[5%] lg:px-[10%]">
-                <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
-                    <div className="flex-shrink-0">
-                        <a
-                            href="#Home"
-                            onClick={(e) => scrollToSection(e, "#Home")}
-                            className="text-xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent"
-                        >
-                            Ekizr
-                        </a>
-                    </div>
+           <div className="mx-auto px-[5%] sm:px-[5%] lg:px-[10%]">
+  <div className="flex items-center justify-between h-16">
+    {/* Logo */}
+    <div className="flex-shrink-0">
+      <a
+        href="#Home"
+        onClick={(e) => scrollToSection(e, "#Home")}
+        className="flex items-center space-x-2"
+      >
+        {/* Ganti teks dengan logo gambar */}
+        <img
+          src="/sas.png" // ganti dengan path logo kamu
+          alt="Atha Logo"
+          className="h-15 w-auto sm:h-19 lg:h-20 object-contain"
+        />
+      </a>
+    </div>
+
         
                     {/* Desktop Navigation */}
                     <div className="hidden md:block">

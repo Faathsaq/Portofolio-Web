@@ -61,7 +61,7 @@ const ProjectStats = ({ project }) => {
         </div>
         <div className="flex-grow">
           <div className="text-lg md:text-xl font-semibold text-blue-200">{techStackCount}</div>
-          <div className="text-[10px] md:text-xs text-gray-400">Total Teknologi</div>
+          <div className="text-[10px] md:text-xs text-gray-400">Technology Stack</div>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ const ProjectStats = ({ project }) => {
         </div>
         <div className="flex-grow">
           <div className="text-lg md:text-xl font-semibold text-purple-200">{featuresCount}</div>
-          <div className="text-[10px] md:text-xs text-gray-400">Fitur Utama</div>
+          <div className="text-[10px] md:text-xs text-gray-400">Main Features</div>
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@ const ProjectDetails = () => {
         ...selectedProject,
         Features: selectedProject.Features || [],
         TechStack: selectedProject.TechStack || [],
-        Github: selectedProject.Github || 'https://github.com/EkiZR',
+        Github: selectedProject.Github || 'https://github.com/Faathsaq',
       };
       setProject(enhancedProject);
     }
@@ -219,18 +219,31 @@ const ProjectDetails = () => {
               </div>
             </div>
 
-            <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-              
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img
-                  src={project.Img}
-                  alt={project.Title}
-                  className="w-full  object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
-                  onLoad={() => setIsImageLoaded(true)}
-                />
-                <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />
-              </div>
+ <div className="space-y-6 md:space-y-10 animate-slideInRight">
+  {/* Image */}
+  <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+    <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+     <img
+      src={project.Img}
+      alt={project.Title}
+      className="w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+      onLoad={() => setIsImageLoaded(true)}
+    />
+    <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />
+  </div>
+
+{/* Video */}
+  {/* Video */}
+  {project.VideoLink && (
+    <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+      <video controls className="w-full rounded-2xl object-cover">
+        <source src={project.VideoLink} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+)}
+
+
 
               {/* Fitur Utama */}
               <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover:border-white/20 transition-colors duration-300 group">

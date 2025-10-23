@@ -10,7 +10,6 @@ import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
-import notfound from "./Pages/404";
 import NotFoundPage from "./Pages/404";
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
@@ -36,7 +35,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
               <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
                 © 2025{" "}
                 <a href="https://flowbite.com/" className="hover:underline">
-                  EkiZR™
+                  Atha
                 </a>
                 . All Rights Reserved.
               </span>
@@ -57,7 +56,7 @@ const ProjectPageLayout = () => (
         <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
           © 2023{" "}
           <a href="https://flowbite.com/" className="hover:underline">
-            EkiZR™
+            Atha
           </a>
           . All Rights Reserved.
         </span>
@@ -69,12 +68,18 @@ const ProjectPageLayout = () => (
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
+  // 🔍 Tambahan log untuk cek apakah transisi welcome -> main page berjalan
+  console.log("showWelcome:", showWelcome);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
+        <Route
+          path="/"
+          element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />}
+        />
         <Route path="/project/:id" element={<ProjectPageLayout />} />
-         <Route path="*" element={<NotFoundPage />} /> {/* Ini route 404 */}
+        <Route path="*" element={<NotFoundPage />} /> {/* Route 404 */}
       </Routes>
     </BrowserRouter>
   );
